@@ -1,16 +1,17 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState } from "react";
+import Slider from "@/components/Slider";
+import Link from "next/link";
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
 
   // Form State'leri
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
+    name: "",
+    email: "",
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -20,13 +21,13 @@ export default function AuthPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isLogin) {
-      console.log('Giriş Yapılıyor:', {
+      console.log("Giriş Yapılıyor:", {
         email: formData.email,
         password: formData.password,
       });
       // Burada backend API çağrısı (fetch/axios) yapılır
     } else {
-      console.log('Kayıt Olunuyor:', formData);
+      console.log("Kayıt Olunuyor:", formData);
       // Burada kayıt API çağrısı yapılır
     }
   };
@@ -34,16 +35,15 @@ export default function AuthPage() {
   return (
     <div className="flex min-h-[calc(100vh-80px)] items-center justify-center bg-amber-50/40 px-4 py-12">
       <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl border border-amber-100">
-        
         {/* Başlık ve Karşılama */}
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold tracking-tight text-amber-950">
-            {isLogin ? 'Tekrar Hoş Geldin' : 'Aramıza Katıl'}
+            {isLogin ? "Tekrar Hoş Geldin" : "Aramıza Katıl"}
           </h1>
           <p className="mt-2 text-sm text-neutral-500">
             {isLogin
-              ? 'Kahve siparişine devam etmek için giriş yap.'
-              : 'Avantajlı kahve dünyasına katılmak için hesabını oluştur.'}
+              ? "Kahve siparişine devam etmek için giriş yap."
+              : "Avantajlı kahve dünyasına katılmak için hesabını oluştur."}
           </p>
         </div>
 
@@ -54,8 +54,8 @@ export default function AuthPage() {
             onClick={() => setIsLogin(true)}
             className={`flex-1 rounded-lg py-2 text-sm font-semibold transition ${
               isLogin
-                ? 'bg-white text-amber-950 shadow-sm'
-                : 'text-neutral-500 hover:text-neutral-900'
+                ? "bg-white text-amber-950 shadow-sm"
+                : "text-neutral-500 hover:text-neutral-900"
             }`}
           >
             Giriş Yap
@@ -65,17 +65,15 @@ export default function AuthPage() {
             onClick={() => setIsLogin(false)}
             className={`flex-1 rounded-lg py-2 text-sm font-semibold transition ${
               !isLogin
-                ? 'bg-white text-amber-950 shadow-sm'
-                : 'text-neutral-500 hover:text-neutral-900'
+                ? "bg-white text-amber-950 shadow-sm"
+                : "text-neutral-500 hover:text-neutral-900"
             }`}
           >
             Kayıt Ol
           </button>
         </div>
 
-      
         <form onSubmit={handleSubmit} className="space-y-4">
-          
           {!isLogin && (
             <div>
               <label className="block text-xs font-semibold text-neutral-700 uppercase tracking-wider mb-1">
@@ -116,7 +114,10 @@ export default function AuthPage() {
                 Şifre
               </label>
               {isLogin && (
-                <a href="#" className="text-xs font-medium text-amber-700 hover:underline">
+                <a
+                  href="#"
+                  className="text-xs font-medium text-amber-700 hover:underline"
+                >
                   Şifremi Unuttum?
                 </a>
               )}
@@ -137,19 +138,17 @@ export default function AuthPage() {
             type="submit"
             className="w-full mt-2 rounded-xl bg-amber-950 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-amber-900 active:scale-[0.99]"
           >
-            {isLogin ? 'Giriş Yap' : 'Hesap Oluştur'}
+            {isLogin ? "Giriş Yap" : "Hesap Oluştur"}
           </button>
         </form>
 
-        
         <div className="mt-6 text-center text-xs text-neutral-500">
-          Devam ederek{' '}
+          Devam ederek{" "}
           <Link href="#" className="text-amber-800 underline">
             Kullanım Koşulları
           </Link>
-        nı kabul etmiş olursunuz.
+          nı kabul etmiş olursunuz.
         </div>
-
       </div>
     </div>
   );

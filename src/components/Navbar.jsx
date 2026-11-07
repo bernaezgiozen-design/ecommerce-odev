@@ -1,19 +1,18 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { Search, ShoppingBag, User, Coffee } from 'lucide-react';
+import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { Search, ShoppingBag, User, Coffee } from "lucide-react";
 
 export default function Navbar() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [cartCount, setCartCount] = useState(0);
   const router = useRouter();
 
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchTerm.trim()) {
-  
       router.push(`/menu?search=${encodeURIComponent(searchTerm.trim())}`);
     }
   };
@@ -21,19 +20,16 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-amber-100 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        
-        
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="flex items-center gap-2 text-xl font-bold tracking-tight text-amber-950 transition hover:text-amber-700"
         >
           <Coffee className="h-6 w-6 text-amber-600" />
           <span>CAFE</span>
         </Link>
 
-        
-        <form 
-          onSubmit={handleSearch} 
+        <form
+          onSubmit={handleSearch}
           className="relative flex flex-1 max-w-xs sm:max-w-md items-center"
         >
           <input
@@ -52,9 +48,7 @@ export default function Navbar() {
           </button>
         </form>
 
-        
         <nav className="flex items-center gap-2 sm:gap-4">
-          
           <Link
             href="/"
             className="hidden sm:inline-block rounded-lg px-3 py-2 text-sm font-semibold text-neutral-700 transition hover:text-amber-700"
@@ -62,7 +56,6 @@ export default function Navbar() {
             Anasayfa
           </Link>
 
-        
           <Link
             href="/menu"
             className="hidden sm:inline-block rounded-lg px-3 py-2 text-sm font-semibold text-neutral-700 transition hover:text-amber-700"
@@ -70,7 +63,6 @@ export default function Navbar() {
             Menü
           </Link>
 
-          
           <Link
             href="/sepet"
             className="relative flex items-center gap-2 rounded-full bg-amber-50 px-3.5 py-2 text-sm font-semibold text-amber-950 transition hover:bg-amber-100"
@@ -82,7 +74,6 @@ export default function Navbar() {
             </span>
           </Link>
 
-          
           <Link
             href="/giris"
             className="flex items-center gap-2 rounded-full bg-amber-950 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-amber-900 active:scale-95"
@@ -91,7 +82,6 @@ export default function Navbar() {
             <span className="hidden sm:inline">Giriş / Kayıt Ol</span>
           </Link>
         </nav>
-
       </div>
     </header>
   );
