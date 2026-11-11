@@ -58,7 +58,7 @@ export default function AuthPage() {
                 : "text-neutral-500 hover:text-neutral-900"
             }`}
           >
-            Giriş Yap
+            Giriş Yapınız
           </button>
           <button
             type="button"
