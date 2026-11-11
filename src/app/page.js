@@ -31,7 +31,7 @@ export default function Home() {
   }
 
   if (loading) {
-    return <p className="p-6">Tarifler yükleniyor...</p>;
+    return <p className="p-6">Tarifler yükleniyor... ezgi</p>;
   }
 
   if (error) {
