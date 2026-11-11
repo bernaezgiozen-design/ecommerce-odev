@@ -95,7 +95,6 @@ export default function Slider() {
             className={`h-2 rounded-full ${
               current === index ? "w-6 bg-white" : "w-2 bg-white/50"
             }`}
-            sjsjsjsj
           />
         ))}
       </div>
