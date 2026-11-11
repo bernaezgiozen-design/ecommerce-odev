@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     getRecipes();
   }, []);
-
+  console.log("object");
   async function getRecipes() {
     const { data, error } = await supabase
       .from("Proje")
